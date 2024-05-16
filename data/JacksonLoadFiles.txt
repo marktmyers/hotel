@@ -1,0 +1,21 @@
+
+--Load hotels into DB (must be run in psql console)
+\copy hotel FROM 'C:\Users\jacks\OneDrive\Documents\School\engeo\data\MOCK_DATA_Hotel.csv' WITH DELIMITER ',';
+
+--Load hotels into DB (must be run in psql console)
+\copy Hotel_PhoneNum FROM 'C:\Users\jacks\OneDrive\Documents\School\engeo\data\MOCK_DATA_Hotel_Phone.csv' WITH DELIMITER ',';
+
+--Load hotels into DB (must be run in psql console)
+\copy Hotel_Feature FROM 'C:\Users\jacks\OneDrive\Documents\School\engeo\data\MOCK_DATA_Hotel_Features.csv' WITH DELIMITER ',';
+
+--Load hotels into DB (must be run in psql console)
+\copy room FROM 'C:\Users\jacks\OneDrive\Documents\School\engeo\data\MOCK_DATA_Room.csv' WITH DELIMITER ',';
+
+--Load hotels into DB (must be run in psql console)
+\copy Room_CurrentOccupantName FROM 'C:\Users\jacks\OneDrive\Documents\School\engeo\data\MOCK_DATA_Room_Current_Occ.csv' WITH DELIMITER ',';
+
+--Load hotels into DB (must be run in psql console)
+\copy Room_FormerOccupantName FROM 'C:\Users\jacks\OneDrive\Documents\School\engeo\data\MOCK_DATA_Room_Former_occ.csv' WITH DELIMITER ',';
+
+--Load hotels into DB (must be run in psql console)
+\copy RoomType FROM 'C:\Users\jacks\OneDrive\Documents\School\engeo\data\MOCK_DATA_Room_types.csv' WITH DELIMITER ',';

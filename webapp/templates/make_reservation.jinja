@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Reservation</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <h2>Hotel Reservation</h2>
+    <p>Hotel: <b>{{ hotel }}</b></p>
+    <p>Room Type(s): <b>
+        {% for room in room_types %}
+            {{ room }}
+            {% if not loop.last %}, {% endif %}
+        {% endfor %}
+        </b></p>
+    <p>Start Date: <b>{{ bookingstartdate }}</b></p>
+    <p>End Date: <b>{{ bookingenddate }}</b></p>
+    <br>
+    <p><i>Customer information:</i></p>
+    <form action="/make_reservation" method="GET">
+        <input type="hidden" id="hotel" name="hotel" value="{{ hotel }}">
+        <input type="hidden" id="bookingstartdate" name="bookingstartdate" value="{{ bookingstartdate }}">
+        <input type="hidden" id="bookingenddate" name="bookingenddate" value="{{ bookingenddate }}">
+        <p>
+            {% for room in room_types %}
+            <input type="hidden" name="roomtype" value="{{ room }}">
+            {% endfor %}
+            <br><br><br>
+            <label for="guestid">Guest ID:</label>
+            <input id="guestid" name="guestid" type="text">
+            <input type="submit" value="Book It!">
+        </p>
+    </form>
+
+    {% for message in get_flashed_messages() %}
+    <p><i>{{ message }}</i></p>
+    {% endfor %}
+</body>
+</html>

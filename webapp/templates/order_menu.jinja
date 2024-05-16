@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Room Service</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+    <h2>Room Service Menu</h2>
+    {% if data %}
+    <div id="table_div"></div>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['table'] });
+        google.charts.setOnLoadCallback(drawTable);
+    
+        function drawTable() {
+            var dataTable = new google.visualization.DataTable();
+            dataTable.addColumn('string', 'Item Name');
+            dataTable.addColumn('string', 'Item Price');
+            dataTable.addRows([
+                {% for row in data %}
+                [{% for i in range(2) %}'{{ row[i] }}', {% endfor %}],
+                {% endfor %}
+            ]);
+    
+            var table = new google.visualization.Table(document.getElementById('table_div'));
+            table.draw(dataTable, { showRowNumber: true, page: true, pageSize: 50 });
+        }
+    </script>
+
+    {% endif %}
+</body>
+</html>

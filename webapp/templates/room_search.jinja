@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Room Search</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+    <h2>Room Search</h2>
+    <form action="/room_search" method="GET"> 
+        HotelID: <input name="hotel_id" type="number" value="{{ hotel_id }}"> &nbsp;
+        Room Status: <input name="room_status" type="text" value="{{ room_status }}"> &nbsp;
+        Room Type: <input name="room_type" type="text" value="{{ room_type }}"> &nbsp;
+        <input type="submit" value="Search">
+    </form>
+    {% if data %}
+    <div id="table_div"></div>
+    <form action="/room_book" method="post"> 
+        <h2>Selected room info:</h2>
+        Hotel ID: <span id="selected_hotel_id"></span><br>
+        Floor Number: <span id="selected_floor_number"></span><br>
+        Room Number: <span id="selected_room_number"></span><br>
+        <input id="hotel_id_input_hidden" name="hotel_id" type="hidden">
+        <input id="room_number_input_hidden" name="room_number" type="hidden">
+        <input id="floor_number_input_hidden" name="floor_number" type="hidden">
+        Guest ID: <input name="guest_id" type="number" value="{{ guest_id }}"> &nbsp;
+        <input type="submit" value="Reserve">
+    </form>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['table'] });
+        google.charts.setOnLoadCallback(drawTable);
+
+        function drawTable() {
+            var dataTable = new google.visualization.DataTable();
+            dataTable.addColumn('number', 'RoomID');
+            dataTable.addColumn('number', 'Floor');
+            dataTable.addColumn('number', 'Price');
+            dataTable.addColumn('string', 'RoomStatus');
+            dataTable.addColumn('number', 'GuestID');
+            dataTable.addColumn('number', 'bookingID');
+            dataTable.addColumn('number', 'HotelID');
+            dataTable.addColumn('string', 'RoomType');
+
+            console.log("inDrawTable");
+
+            // Add rows from data
+            dataTable.addRows([
+                {% for row in data %}
+                [
+                    {% for i in range(8) %}
+                        {% if i == 0 or i == 1 or i == 2 or i == 4 or i == 5 or i == 6 %} //error was being called when number types were being sent into data as string
+                            {{ row[i] }}, 
+                        {% else %}
+                            '{{ row[i] }}', 
+                        {% endif %}
+                    {% endfor %}
+                ],
+                {% endfor %}
+            ]);
+
+            var table = new google.visualization.Table(document.getElementById('table_div'));
+            table.draw(dataTable, { showRowNumber: true, page: true, pageSize: 50 });
+
+            google.visualization.events.addListener(table, "select", function() {
+                var selection = table.getSelection();
+                var row = selection[0].row;
+
+                // Get hotel ID, room number, and floor number from the selected row
+                var hotelId = dataTable.getValue(row, 6);
+                var roomNumber = dataTable.getValue(row, 0);
+                var floorNumber = dataTable.getValue(row, 1);
+
+                // Set the values to the visible spans and hidden input fields
+                document.getElementById("selected_hotel_id").innerText = hotelId;
+                document.getElementById("selected_room_number").innerText = roomNumber;
+                document.getElementById("selected_floor_number").innerText = floorNumber;
+                document.getElementById("hotel_id_input_hidden").value = hotelId;
+                document.getElementById("room_number_input_hidden").value = roomNumber;
+                document.getElementById("floor_number_input_hidden").value = floorNumber;
+            });
+        }
+    </script>
+    {% endif %}
+</body>
+</html>

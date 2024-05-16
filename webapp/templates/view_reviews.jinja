@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <title>View Reviews</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+    <h2>View Reviews</h2>
+    <form>
+        Hotel Name: <input name="hotelname" type="text" value="{{ hotelname }}"> &nbsp;
+        <input type="submit">
+    </form>
+    {% if data %}
+    <div id="table_div"></div>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['table'] });
+        google.charts.setOnLoadCallback(drawTable);
+
+        function drawTable() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string',   'dn');
+            data.addColumn('string',   'hid');
+            data.addColumn('string', 'gid');
+            data.addColumn('string', 'r');
+            data.addColumn('string',   's');
+
+            data.addRows([
+                {% for row in data %}
+                [{% for i in range(5) %}'{{ row[i] }}', {% endfor %}],
+                {% endfor %}
+            ]);
+
+            var table = new google.visualization.Table(document.getElementById('table_div'));
+            table.draw(data, { showRowNumber: true, page: true, pageSize: 50 });
+        }
+    </script>
+    {% endif %}
+</body>
+
+</html>

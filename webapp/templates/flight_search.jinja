@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>Flight Search</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+    <h2>Flight Search</h2>
+    <form>
+        Airport: <input name="airport" type="text" value="{{ airport }}"> &nbsp;
+        Beg date: <input name="beg_date" type="date" value="{{ beg_date }}"> &nbsp;
+        End date: <input name="end_date" type="date" value="{{ end_date }}"> &nbsp;
+        <input type="submit">
+    </form>
+    {% if data %}
+    <div id="table_div"></div>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['table'] });
+        google.charts.setOnLoadCallback(drawTable);
+
+        function drawTable() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string',   'flight_id');
+            data.addColumn('string',   'flight_no');
+            data.addColumn('string', 'scheduled_departure');
+            data.addColumn('string', 'scheduled_arrival');
+            data.addColumn('string',   'departure_airport');
+            data.addColumn('string',   'arrival_airport');
+            data.addColumn('string',   'status');
+            data.addColumn('string',   'aircraft_code');
+
+            data.addRows([
+                {% for row in data %}
+                [{% for i in range(8) %}'{{ row[i] }}', {% endfor %}],
+                {% endfor %}
+            ]);
+
+            var table = new google.visualization.Table(document.getElementById('table_div'));
+            table.draw(data, { showRowNumber: true, page: true, pageSize: 50 });
+        }
+    </script>
+    {% endif %}
+</body>
+
+</html>

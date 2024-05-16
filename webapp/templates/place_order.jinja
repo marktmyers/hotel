@@ -1,0 +1,70 @@
+## Used https://blog.hubspot.com/website/html-dropdown for help on making a dropdown.
+<html>
+
+<head>
+    <title>Place Room Service Order</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+    <h2>Order Item</h2>
+    <p><i>Customer/Delivery Information:</i></p>
+    <form>
+        <label for="item_name">Choose an item:</label>
+            <select name="item_name" id="item_name">
+                <option>Cookie</option>
+                <option>Tea</option>
+                <option>Chicken Sandwich</option>
+                <option>Dr. Pepper</option>
+                <option>Cake</option>
+                <option>Fanta</option>
+                <option>Cheeseburger</option>
+                <option>Fries</option>
+                <option>Coffee Cake</option>
+                <option>Cherry Pie</option>
+                <option>Spring Water</option>
+                <option>Apple Pie</option>
+                <option>Sprite</option>
+                <option>Skittles</option>
+                <option>Twix</option>
+                <option>Steak</option>
+                <option>Baked Potato</option>
+                <option>Caviar</option>
+                <option>Champagne</option>
+                <option>Caesar Salad</option>
+                <option>Garlic Bread</option>
+                <option>Salmon</option>
+                <option>Green Beans</option>
+                <option>Bourbon</option>
+                <option>Whiskey</option>
+                <option>Seltzer</option>
+                <option>Cheese Steak</option>
+                <option>Carrot Cake</option>
+                <option>Cupcake</option>
+                <option>Chocolate Cake</option>
+                <option>Bottled Water</option>
+                <option>Veggie Tray</option>
+                <option>Milk</option>
+                <option>Pizza</option>
+                <option>Wings</option>
+                <option>Tacos</option>
+                <option>Burrito</option>
+                <option>Muffin</option>
+                <option>Crumpet</option>
+                <option>Cinammon Toast Crunch</option>
+                <option>Fruit Loops</option>
+                <option>Orange Juice</option>
+                <option>Apple Juice</option>
+                <option>Fruit Salad</option>
+                <option>Cobb Salad</option>
+        Guest ID: <input name="guest_id" type="text" value="{{ guest_id }}"> &nbsp;
+        Room Number: <input name ="room_num" type="text" value="{{ room_num }}"> &nbsp;
+        Delivery Time (Use 24hr Time): <input name="delivery_time" type="text" value="{{ delivery_time }}"> &nbsp;
+        <input type="submit" value="Place Room Service Order">
+    </form>
+    {% for message in get_flashed_messages() %}
+    <p><i>{{ message }}</i></p>
+    {% endfor %}
+</body>
+
+</html>

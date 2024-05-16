@@ -1,0 +1,160 @@
+1,Suite,1
+2,Suite,4
+3,Suite,1
+4,Suite,1
+5,Suite,2
+6,Suite,2
+7,Suite,1
+8,Suite,2
+9,Suite,2
+10,Suite,4
+11,Suite,1
+12,Suite,3
+13,Suite,4
+14,Suite,4
+15,Suite,2
+16,Suite,3
+17,Suite,4
+18,Suite,2
+19,Suite,2
+20,Suite,1
+1,Double,2
+2,Double,4
+3,Double,1
+4,Double,2
+5,Double,2
+6,Double,1
+7,Double,1
+8,Double,3
+9,Double,4
+10,Double,4
+11,Double,3
+12,Double,4
+13,Double,3
+14,Double,3
+15,Double,2
+16,Double,3
+17,Double,3
+18,Double,3
+19,Double,4
+20,Double,2
+1,Single,2
+2,Single,1
+3,Single,2
+4,Single,2
+5,Single,1
+6,Single,2
+7,Single,1
+8,Single,1
+9,Single,2
+10,Single,2
+11,Single,2
+12,Single,1
+13,Single,1
+14,Single,1
+15,Single,1
+16,Single,1
+17,Single,1
+18,Single,2
+19,Single,1
+20,Single,2
+1,King,4
+2,King,2
+3,King,2
+4,King,3
+5,King,4
+6,King,4
+7,King,2
+8,King,3
+9,King,4
+10,King,3
+11,King,4
+12,King,2
+13,King,4
+14,King,3
+15,King,4
+16,King,3
+17,King,4
+18,King,3
+19,King,4
+20,King,2
+1,Family Style,3
+2,Family Style,4
+3,Family Style,6
+4,Family Style,4
+5,Family Style,4
+6,Family Style,4
+7,Family Style,4
+8,Family Style,3
+9,Family Style,4
+10,Family Style,6
+11,Family Style,4
+12,Family Style,3
+13,Family Style,6
+14,Family Style,4
+15,Family Style,5
+16,Family Style,3
+17,Family Style,3
+18,Family Style,4
+19,Family Style,5
+20,Family Style,4
+1,Penthouse,7
+2,Penthouse,4
+3,Penthouse,8
+4,Penthouse,8
+5,Penthouse,7
+6,Penthouse,3
+7,Penthouse,7
+8,Penthouse,7
+9,Penthouse,8
+10,Penthouse,3
+11,Penthouse,5
+12,Penthouse,4
+13,Penthouse,8
+14,Penthouse,3
+15,Penthouse,7
+16,Penthouse,7
+17,Penthouse,5
+18,Penthouse,8
+19,Penthouse,6
+20,Penthouse,8
+1,Smoking Double,2
+2,Smoking Double,2
+3,Smoking Double,2
+4,Smoking Double,1
+5,Smoking Double,1
+6,Smoking Double,2
+7,Smoking Double,2
+8,Smoking Double,1
+9,Smoking Double,3
+10,Smoking Double,1
+11,Smoking Double,1
+12,Smoking Double,2
+13,Smoking Double,3
+14,Smoking Double,1
+15,Smoking Double,2
+16,Smoking Double,1
+17,Smoking Double,3
+18,Smoking Double,3
+19,Smoking Double,3
+20,Smoking Double,1
+1,Smoking Single,1
+2,Smoking Single,2
+3,Smoking Single,2
+4,Smoking Single,1
+5,Smoking Single,1
+6,Smoking Single,2
+7,Smoking Single,2
+8,Smoking Single,1
+9,Smoking Single,1
+10,Smoking Single,2
+11,Smoking Single,2
+12,Smoking Single,2
+13,Smoking Single,1
+14,Smoking Single,2
+15,Smoking Single,1
+16,Smoking Single,1
+17,Smoking Single,2
+18,Smoking Single,2
+19,Smoking Single,1
+20,Smoking Single,2

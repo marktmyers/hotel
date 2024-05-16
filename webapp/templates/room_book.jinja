@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Room Book</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+    <h2>Room Book</h2>
+    <p>Hotel ID: <b>{{ hotel_id }}</b></p>
+    <p>Floor Number: <b>{{ floor_num }}</b></p>
+    <p>Room Number: <b>{{ room_num }}</b></p>
+    <p>Guest ID: <b>{{ guest_id }}</b></p>
+    <h2><i>Guest Information:</i></h2>
+    <form action="/room_book" method="post">
+        <input name="hotel_id" type="hidden" value="{{ hotel_id }}">
+        <input name="floor_num" type="hidden" value="{{ floor_num }}">
+        <input name="room_num" type="hidden" value="{{ room_num }}">
+        <input name="guest_id" type="hidden" value="{{ guest_id }}">
+        
+        Guest Name: <input name="guest_name_1" type="text" value="{{ guest_name_1 }}"> &nbsp;
+        Additional Guest Name: <input name="guest_name_2" type="text" value="{{ guest_name_2 }}"> &nbsp;
+        Additional Guest Name: <input name="guest_name_3" type="text" value="{{ guest_name_3 }}"> &nbsp;
+        Additional Guest Name: <input name="guest_name_4" type="text" value="{{ guest_name_4 }}"> &nbsp;
+
+        <input type="submit" value="Book Room">
+    </form>
+    {% for message in get_flashed_messages() %}
+    <p><i>{{ message }}</i></p>
+    {% endfor %}
+</body>
+
+</html>
+
+
+
